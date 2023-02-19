@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="order pt-4  d-flex flex-column align-items-center">
+    <div class="title-products fs-2 fw-bold text-center mb-5">
+      Сделать заказ
+    </div>
+    <form class="row gy-3 mb-5 gx-4 col-md-8" [formGroup]="checkoutForm">
+      <div class="col-md-4">
+        <label for="inputName" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="inputName"
+               formControlName="name">
+        <div class="w-100" *ngIf="checkoutForm.get('name')?.invalid
+          && (checkoutForm.get('name')?.touched || checkoutForm.get('name')?.dirty)">
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('name')?.errors?.['required']" >
+            Valid first name is required.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('name')?.errors?.['pattern']">
+            Name must contain only letters.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputSurname" class="form-label">Фамилия</label>
+        <input type="text" class="form-control" id="inputSurname"
+        formControlName="last_name">
+        <div class="w-100" *ngIf="checkoutForm.get('last_name')?.invalid
+          && (checkoutForm.get('last_name')?.touched || checkoutForm.get('last_name')?.dirty)">
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('last_name')?.errors?.['required']">
+            Valid first name is required.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('last_name')?.errors?.['pattern']">
+            Last name must contain only letters.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputNumber" class="form-label">Телефон</label>
+        <input type="tel" class="form-control" id="inputNumber"
+        formControlName="phone">
+        <div class="w-100" *ngIf="checkoutForm.get('phone')?.invalid
+          && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty)">
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['required']">
+            Valid phone is required.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">
+            Phone must contain 11 numbers.
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label for="inputCountry" class="form-label">Страна</label>
+        <input type="text" class="form-control" id="inputCountry"
+        formControlName="country">
+        <div class="w-100" *ngIf="checkoutForm.get('country')?.invalid
+          && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty)">
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.errors?.['required']">
+            Valid country is required.
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label for="inputIndex" class="form-label">Индекс</label>
+        <input type="text" class="form-control" id="inputIndex"
+        formControlName="zip">
+        <div class="w-100" *ngIf="checkoutForm.get('zip')?.invalid
+          && (checkoutForm.get('zip')?.touched || checkoutForm.get('zip')?.dirty)">
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.errors?.['required']">
+            Valid zip is required.
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Адрес</label>
+        <input type="text" class="form-control mb-2" id="inputAddress"
+        formControlName="address">
+        <div class="w-100" *ngIf="checkoutForm.get('address')?.invalid
+          && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty)">
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['required']">
+            Valid address is required.
+          </div>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['pattern']">
+            You can enter: letters, numbers, spaces, hyphens and slashes.
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="inputProduct" class="form-label">Товар</label>
+        <input type="text" class="form-control mb-2" id="inputProduct"
+        formControlName="product">
+      </div>
+      <div class="col-12">
+        <label for="inputComment" class="form-label">Комментарий к заказу</label>
+        <input type="text" class="form-control mb-2" id="inputComment"
+        formControlName="comment">
+      </div>
+      <div class="col-12">
+        <button type="submit" id="form-submit"
+           class="btn btn-submit btn-primary rounded pt-7 pb-7 w-25 hvr-shadow-radial open-popup-link"
+        (click)="createOrder()" [disabled]="checkoutForm.invalid">Отправить</button>
+        <p id="error-button" [class.open]="errorButton" >Произошла ошибка, попробуйте еще раз</p>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<div tabindex="-1" id="popup-order" [class.open]="popupSuccess" class="white-popup mfp-hide modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Внимание</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="successOrder()"></button>
+      </div>
+      <div class="modal-body">
+        <p> Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="successOrder()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div id="popup-order" [class.open]="popupSuccess" class="white-popup mfp-hide">-->
+<!--  Спасибо за заказ. Мы свяжемся с вами в ближайшее время!-->
+<!--</div>-->

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="mb-5">
+    <div class="slider pt-5 ">
+      <div class="slider1 mt-4 ps-5 d-flex align-items-center">
+        <div class="block-text ps-sm-5 ps-4 pe-5">
+          <div class="title fs-1 fw-bold display-4 ms-4 mb-5">Скидки на травянные чаи</div>
+          <div class="text ms-4 mt-4 mb-5">Узай все подробности, заполнив заявку</div>
+          <button type="button" class="btn btn-primary ps-5 pe-5 ms-4 mt-4">Заполнить
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="question pt-4 mb-5 d-flex flex-column align-items-center">
+    <div class="title-products fs-2 fw-bold text-center mb-5">
+      Ответы на часто задаваемые вопросы
+    </div>
+    <div id="accordion" class="d-flex flex-column gy-3 col-md-10" >
+      <h3 class="mb-3 bg-primary text-white fw-bold rounded-2 border-0 p-4 pe-5">Собираете ли вы подарочные боксы?</h3>
+      <div class="border-0">
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
+      </div>
+      <h3 class="mb-3 bg-primary text-white fw-bold rounded-2 border-0 p-4 pe-5">Сколько у вас разновидностей чая?</h3>
+      <div class="border-0">
+        <p>В нашу коллекцию входит 6 разновидностей чая.</p>
+      </div>
+      <h3 class="mb-3  bg-primary text-white fw-bold rounded-2 border-0 p-4 pe-5">В какой срок осуществляется доставка?</h3>
+      <div class="border-0">
+        <p>Доставка осуществляется в течении нескольких дней после заказа.</p>
+      </div>
+      <h3 class="mb-3 bg-primary text-white fw-bold rounded-2 border-0 p-4 pe-5">У вас обновляется ассортимент?</h3>
+      <div class="border-0">
+        <p>Да, наш ассортимент постоянно обновляется.</p>
+      </div>
+      <h3 class="mb-3 bg-primary text-white fw-bold rounded-2 border-0 p-4 pe-5">Какого объема у вас пачки чая?</h3>
+      <div class="border-0">
+        <p>Наши пачки продаются объемом в 1 кг.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" [class.open]="modalOpen">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Внимание!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()"></button>
+      </div>
+      <div class="modal-body">
+        <p>Посмотрите наши чайные коллекции</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" routerLink="/catalog">Смотреть</button>
+      </div>
+    </div>
+  </div>
+</div>

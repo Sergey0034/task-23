@@ -1,0 +1,17 @@
+<div class="container d-flex flex-column min-vh-100">
+  <div class="card mb-5 mt-5" style="width: 100%;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{product.image}}" class="img-fluid rounded-start" alt="tea">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{product.title}}</h3>
+          <p class="card-text">{{product.description}}</p>
+          <h5 class="card-text">Цена: {{product.price}} руб.</h5>
+          <button class="btn btn-primary ps-4 pe-4" routerLink="/order" [queryParams]="{product: product.title}" >Купить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
